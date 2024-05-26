@@ -1,0 +1,80 @@
+<nav class="navbar navbar-expand-lg bg-dark">
+  <div class="container-fluid">
+    <%= link_to "Friend App", root_path, class:"navbar-brand", style:"color : white" %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation";>
+      <span class="navbar-toggler-icon" style="
+      display: inline-block; 
+      width: 30px; 
+      height: 22px; 
+      position: relative; 
+    ">
+      <span style="
+        display: block; 
+        width: 100%; 
+        height: 4px; 
+        background-color: white; 
+        border-radius: 2px; 
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        transition: all 0.3s;
+      "></span>
+      <span style="
+        display: block; 
+        width: 100%; 
+        height: 4px; 
+        background-color: white; 
+        border-radius: 2px; 
+        position: absolute; 
+        top: 9px; 
+        left: 0; 
+        transition: all 0.3s;
+      "></span>
+      <span style="
+        display: block; 
+        width: 100%; 
+        height: 4px; 
+        background-color: white; 
+        border-radius: 2px; 
+        position: absolute; 
+        top: 18px; 
+        left: 0; 
+        transition: all 0.3s;
+      "></span>
+    </span>
+
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <%= link_to "About Us", home_about_path, class:"nav-link", style:"color : white" %>
+        </li>
+        <li class='nav-item'>
+          <%= link_to "friends", friends_path, class:"nav-link", style:"color : white"%>
+        </li>
+        
+        <% if user_signed_in? %>
+        <li class='nav-item'>
+          <%= link_to "Add Friend", new_friend_path, class:"nav-link", style:"color : white"%>
+        </li>
+        <li class='nav-item'>
+          <%= button_to 'Sign Out', destroy_user_session_path, method: :delete, class:"nav-link", style:"color : white" %>
+        </li>
+        <li class='nav-item'>
+          <%= link_to "Edit Profile", edit_user_registration_path, class:"nav-link", style:"color : white"%>
+        </li>
+
+        <% else %>
+        <li class='nav-item'>
+          <%= link_to "Sign Up", new_user_registration_path, class:"nav-link", style:"color : white"%>
+        </li>
+        <li class='nav-item'>
+          <%= link_to "Sign in", new_user_session_path, class:"nav-link", style:"color : white"%>
+        </li>
+        <% end %>
+
+
+      </ul>
+    </div>
+  </div>
+</nav>
